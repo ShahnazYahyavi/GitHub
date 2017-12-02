@@ -29,7 +29,12 @@ public class Lønmodtager {
 	}
 
 	public double getBundSkatSkat() {
-		return inkomest - (inkomest - fradrage) * (11.15 / 100);
+		if(isGift())
+		return inkomest - (inkomest - fradrage) * (11.15 / 100)+
+				ægtefælleInkomest - (ægtefælleInkomest - ægtefælleFradrag) * (11.15 / 100);
+		else
+			return inkomest - (inkomest - fradrage) * (11.15 / 100);
+			
 	}
 
 	public double getTopSkatSkat() {
@@ -39,9 +44,7 @@ public class Lønmodtager {
 			return 0;
 
 	}
-	public void setFradrage(double fradrage) {
-		this.fradrage=fradrage;
-	}
+	
 
 	public boolean isGift() {
 		return gift;
