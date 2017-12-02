@@ -39,4 +39,13 @@ public class skatTest {
 			
 		assertEquals(topSkat,skat.getTopSkatSkat(),1);
 	}
+	@Test
+	public void testBegeneInkomestSkatMedægtefælle() {
+		Lønmodtager skat= new Lønmodtager(400000, 46000);
+		Lønmodtager skat1= new Lønmodtager(400000,46000,true); // den lønmotager er gift
+		
+		
+		double inkomestSkat= 400000-(400000-46000)*(26.6/100);
+		assertEquals(inkomestSkat,skat.getInkomestSkat(),1);
+	}
 }
