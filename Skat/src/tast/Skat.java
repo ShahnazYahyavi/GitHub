@@ -3,13 +3,12 @@ package tast;
 
 
 public class Skat {
-private double inkomest;
-private double fradrage;
+private double inkomest=400000;
+private double fradrage=46000;
 
 
 public double getInkomestSkat() {
-return inkomest-(inkomest-inkomest)*(26.6/100);
-
+return inkomest-(inkomest-fradrage)*(26.6/100);
 }
 
 
