@@ -10,9 +10,9 @@ public class skatTest {
 
 	@Test
 	public void testBegeneInkomestSkat() {
-		Skat skat= new Skat();
+		Skat skat= new Skat(400000, 46000);
 		
-		double inkomestSkat= 400000-(4-46000)*(26.6/100);
+		double inkomestSkat= 400000-(400000-46000)*(26.6/100);
 		assertEquals(inkomestSkat,skat.getInkomestSkat(),1);
 	}
 
