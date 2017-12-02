@@ -4,9 +4,14 @@ public class Lønmodtager {
 	private double inkomest;
 	private double fradrage;
 
+
 	public Lønmodtager(double inkomest, double fradrage) {
 		this.inkomest = inkomest;
 		this.fradrage = fradrage;
+	}
+
+	public Lønmodtager(double inkomest, double fradrage, boolean b) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public double getInkomestSkat() {
