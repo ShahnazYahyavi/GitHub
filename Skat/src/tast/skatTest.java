@@ -7,8 +7,10 @@ import org.junit.Test;
 public class skatTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testBegeneInkomestSkat() {
+		BigDecimal inkomestSkat;
+		BigDecimal løn;
+		assertEquals(inkomestSkat,);
 	}
 
 }
