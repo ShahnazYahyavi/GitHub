@@ -2,6 +2,8 @@ package tast;
 
 import static org.junit.Assert.*;
 
+import java.math.BigDecimal;
+
 import org.junit.Test;
 
 public class skatTest {
@@ -10,7 +12,8 @@ public class skatTest {
 	public void testBegeneInkomestSkat() {
 		BigDecimal inkomestSkat;
 		BigDecimal løn;
-		assertEquals(inkomestSkat,);
+		BigDecimal fraDrag;
+		assertEquals(305.836,skat.getInkomestSkat);
 	}
 
 }
