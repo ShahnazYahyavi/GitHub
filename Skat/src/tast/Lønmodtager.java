@@ -3,19 +3,23 @@ package tast;
 public class Lønmodtager {
 	private double inkomest;
 	private double fradrage;
-
+	private boolean gift;
 
 	public Lønmodtager(double inkomest, double fradrage) {
 		this.inkomest = inkomest;
 		this.fradrage = fradrage;
 	}
 
-	public Lønmodtager(double inkomest, double fradrage, boolean b) {
-		// TODO Auto-generated constructor stub
+	public Lønmodtager(double inkomest, double fradrage, boolean gift) {
+		this(inkomest, fradrage);
+		this.gift = gift;
 	}
 
 	public double getInkomestSkat() {
-		return inkomest - (inkomest - fradrage) * (26.6 / 100);
+		if (isGift())
+			return inkomest - (inkomest - fradrage) * (26.6 / 100) + getInkomestSkat();
+		else
+			return inkomest - (inkomest - fradrage) * (26.6 / 100);
 	}
 
 	public double getBundSkatSkat() {
@@ -28,6 +32,10 @@ public class Lønmodtager {
 		} else
 			return 0;
 
+	}
+
+	public boolean isGift() {
+		return gift;
 	}
 
 }

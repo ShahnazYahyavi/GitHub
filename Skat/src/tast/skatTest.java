@@ -41,11 +41,11 @@ public class skatTest {
 	}
 	@Test
 	public void testBegeneInkomestSkatMedægtefælle() {
-		Lønmodtager skat= new Lønmodtager(400000, 46000);
-		Lønmodtager skat1= new Lønmodtager(400000,46000,true); // den lønmotager er gift
 		
+		Lønmodtager skat1= new Lønmodtager(400000,34500,true); // den lønmotager er gift
+				
+		double inkomestSkat= 400000-(400000-46000)*(26.6/100)+(400000-(40000-34500)*(26.6/100));
 		
-		double inkomestSkat= 400000-(400000-46000)*(26.6/100);
-		assertEquals(inkomestSkat,skat.getInkomestSkat(),1);
+		assertEquals(inkomestSkat,skat1.getInkomestSkat(),1);
 	}
 }
