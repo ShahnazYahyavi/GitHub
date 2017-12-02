@@ -17,8 +17,10 @@ public double getBundSkatSkat() {
 		return inkomest-(inkomest-fradrage)*(11.15/100);
 }
 public double getTopSkatSkat() {
-	// TODO Auto-generated method stub
-	return 0;
+		if(inkomest-498900<0)
+		return 0;
+	else 
+		return inkomest-(inkomest-49800)*(14.27/100);
 }
 
 
