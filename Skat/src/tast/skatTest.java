@@ -54,5 +54,21 @@ public class skatTest {
 		double bundSkat = 400000 - (400000 - 46000) * (11.15 / 100)+(400000 - (400000 - 34500) * (11.15 / 100));
 		assertEquals(bundSkat, skat.getBundSkatSkat(), 1);
 	}
+	@Test
+	public void testBegeneTopSkatMedægtefælle() {
+		Lønmodtager skat = new Lønmodtager(400000, 400000, 46000, 34500, true);
+		double inkomest = 400000+400000;
+		double topSkat = 400000 - 498900;
+
+		if (topSkat > 0 && inkomest > 86600) {
+			topSkat = 400000 - (400000 - 498900) * (14.27 / 100);
+			double a = 400000 - (400000 - 498900) * (4.25 / 100);
+			topSkat = topSkat + a;
+		} else
+			topSkat = 0;
+
+		assertEquals(topSkat, skat.getTopSkatSkat(), 1);
+	}
+
 	
 }

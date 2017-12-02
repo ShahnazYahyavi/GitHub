@@ -38,12 +38,24 @@ public class Lønmodtager {
 	}
 
 	public double getTopSkatSkat() {
-		if ((inkomest - 498900) > 0 && inkomest > 43800) {
-			return inkomest - (inkomest - 498900) * (4.25 / 100) + inkomest - (inkomest - 498900) * (14.27 / 100);
-		} else
-			return 0;
-
+		if(isGift()) {
+			if ((inkomest+ægtefælleInkomest -( 498900*2)) > 0 && inkomest +ægtefælleInkomest> 87600) {
+				return inkomest - (inkomest - 498900) * (4.25 / 100) + inkomest - (inkomest - 498900) * (14.27 / 100)+
+						ægtefælleInkomest - (ægtefælleInkomest - 498900) * (4.25 / 100) + ægtefælleInkomest
+						- (ægtefælleInkomest - 498900) * (14.27 / 100);
+			} else
+				return 0;
 	}
+		else
+		{
+			if ((inkomest - 498900) > 0 && inkomest > 43800) {
+				return inkomest - (inkomest - 498900) * (4.25 / 100) + inkomest - (inkomest - 498900) * (14.27 / 100);
+			} else
+				return 0;
+
+		}
+		}
+	
 	
 
 	public boolean isGift() {
