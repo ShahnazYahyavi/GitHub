@@ -4,21 +4,27 @@ public class Lønmodtager {
 	private double inkomest;
 	private double fradrage;
 	private boolean gift;
+	private double ægtefælleFradrag;
+	private double ægtefælleInkomest;
 
 	public Lønmodtager(double inkomest, double fradrage) {
 		this.inkomest = inkomest;
 		this.fradrage = fradrage;
 	}
 
-	public Lønmodtager(double inkomest, double fradrage, boolean gift) {
+	public Lønmodtager(double inkomest,double ægtefælleInkomest, double fradrage, double agtefæleFardrag,boolean gift) {
 		this(inkomest, fradrage);
+		this.ægtefælleFradrag=agtefæleFardrag;
+		this.ægtefælleInkomest=ægtefælleInkomest;
 		this.gift = gift;
 	}
 
 	public double getInkomestSkat() {
-		if (isGift())
-			return inkomest - (inkomest - fradrage) * (26.6 / 100) + getInkomestSkat();
+		if(isGift())
+			return inkomest - (inkomest - fradrage) * (26.6 / 100)+
+					ægtefælleInkomest - (ægtefælleInkomest - ægtefælleFradrag) * (26.6 / 100);
 		else
+			
 			return inkomest - (inkomest - fradrage) * (26.6 / 100);
 	}
 
@@ -32,6 +38,9 @@ public class Lønmodtager {
 		} else
 			return 0;
 
+	}
+	public void setFradrage(double fradrage) {
+		this.fradrage=fradrage;
 	}
 
 	public boolean isGift() {
