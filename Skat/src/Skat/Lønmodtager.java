@@ -1,4 +1,4 @@
-package tast;
+package Skat;
 
 public class Lønmodtager {
 	private double inkomest;
