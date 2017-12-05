@@ -21,7 +21,7 @@ public class skatTest {
 		Lønmodtager skat = new Lønmodtager(400000, 46000);
 
 		double bundSkat = 400000 - (400000 - 46000) * (11.15 / 100);
-		assertEquals(bundSkat, skat.getBundSkatSkat(), 1);
+		assertEquals(bundSkat, skat.getBundSkat(), 1);
 	}
 
 	@Test
@@ -37,7 +37,7 @@ public class skatTest {
 		} else
 			topSkat = 0;
 
-		assertEquals(topSkat, skat.getTopSkatSkat(), 1);
+		assertEquals(topSkat, skat.getTopSkat(), 1);
 	}
 
 	@Test
@@ -54,7 +54,7 @@ public class skatTest {
 		Lønmodtager skat = new Lønmodtager(400000, 400000, 46000, 34500, true);
 
 		double bundSkat = 400000 - (400000 - 46000) * (11.15 / 100)+(400000 - (400000 - 34500) * (11.15 / 100));
-		assertEquals(bundSkat, skat.getBundSkatSkat(), 1);
+		assertEquals(bundSkat, skat.getBundSkat(), 1);
 	}
 	@Test
 	public void testBegeneTopSkatMedægtefælle() {
@@ -69,7 +69,7 @@ public class skatTest {
 		} else
 			topSkat = 0;
 
-		assertEquals(topSkat, skat.getTopSkatSkat(), 1);
+		assertEquals(topSkat, skat.getTopSkat(), 1);
 	}
 
 	

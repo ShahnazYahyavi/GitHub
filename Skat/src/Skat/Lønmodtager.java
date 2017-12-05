@@ -2,64 +2,69 @@ package Skat;
 
 public class Lønmodtager {
 	private double inkomest;
-	private double fradrage;
+	private double fradrag;
 	private boolean gift;
 	private double ægtefælleFradrag;
 	private double ægtefælleInkomest;
 
-	public Lønmodtager(double inkomest, double fradrage) {
+	public Lønmodtager(double inkomest, double fradrag) {
 		this.inkomest = inkomest;
-		this.fradrage = fradrage;
+		this.fradrag = fradrag;
 	}
 
-	public Lønmodtager(double inkomest,double ægtefælleInkomest, double fradrage, double agtefæleFardrag,boolean gift) {
-		this(inkomest, fradrage);
-		this.ægtefælleFradrag=agtefæleFardrag;
-		this.ægtefælleInkomest=ægtefælleInkomest;
+	public Lønmodtager(double inkomest, double ægtefælleInkomest, double fradrag, double agtefælleFardrag,
+			boolean gift) {
+		this(inkomest, fradrag);
+		this.ægtefælleFradrag = agtefælleFardrag;
+		this.ægtefælleInkomest = ægtefælleInkomest;
 		this.gift = gift;
 	}
 
 	public double getInkomestSkat() {
-		if(isGift())
-			return inkomest - (inkomest - fradrage) * (26.6 / 100)+
-					ægtefælleInkomest - (ægtefælleInkomest - ægtefælleFradrag) * (26.6 / 100);
+		if (isGift())
+			return beregninginkomest(inkomest, fradrag) + beregninginkomest(ægtefælleInkomest, ægtefælleFradrag);
 		else
-			
-			return inkomest - (inkomest - fradrage) * (26.6 / 100);
+
+			return beregninginkomest(inkomest, fradrag);
 	}
 
-	public double getBundSkatSkat() {
-		if(isGift())
-		return inkomest - (inkomest - fradrage) * (11.15 / 100)+
-				ægtefælleInkomest - (ægtefælleInkomest - ægtefælleFradrag) * (11.15 / 100);
+	public double getBundSkat() {
+		if (isGift())
+			return beregningBundSkat(inkomest, fradrag) + beregningBundSkat(ægtefælleInkomest, ægtefælleFradrag);
 		else
-			return inkomest - (inkomest - fradrage) * (11.15 / 100);
-			
+			return beregningBundSkat(inkomest, fradrag);
+
 	}
 
-	public double getTopSkatSkat() {
-		if(isGift()) {
-			if ((inkomest+ægtefælleInkomest -( 498900*2)) > 0 && inkomest +ægtefælleInkomest> 87600) {
-				return inkomest - (inkomest - 498900) * (4.25 / 100) + inkomest - (inkomest - 498900) * (14.27 / 100)+
-						ægtefælleInkomest - (ægtefælleInkomest - 498900) * (4.25 / 100) + ægtefælleInkomest
-						- (ægtefælleInkomest - 498900) * (14.27 / 100);
+	public double getTopSkat() {
+		if (isGift()) {
+			if ((inkomest + ægtefælleInkomest - (498900 * 2)) > 0 && inkomest + ægtefælleInkomest > 87600) {
+				return beregningTopSkat( inkomest)+beregningTopSkat( ægtefælleInkomest);
+						
 			} else
 				return 0;
-	}
-		else
-		{
+		} else {
 			if ((inkomest - 498900) > 0 && inkomest > 43800) {
-				return inkomest - (inkomest - 498900) * (4.25 / 100) + inkomest - (inkomest - 498900) * (14.27 / 100);
+				return beregningTopSkat( inkomest);
 			} else
 				return 0;
 
 		}
-		}
-	
-	
+	}
 
 	public boolean isGift() {
 		return gift;
+	}
+
+	private double beregninginkomest(double inkomest, double fradrag) {
+		return inkomest - (inkomest - fradrag) * 0.266;
+	}
+
+	private double beregningBundSkat(double inkomest, double fradrag) {
+		return inkomest - (inkomest - fradrag) * 0.1115;
+	}
+	private double beregningTopSkat(double inkomest) {
+		return inkomest - (inkomest - 498900) * 0.0425  + inkomest - (inkomest - 498900) * 0.1427 ;
 	}
 
 }

@@ -1,0 +1,25 @@
+*TDD
+
+*Git/GitHub
+
+*BigDeicimal
+
+*Skatteregler
+
+-følg TDD processen
+
+-Tag små skridt
+
+- en rubik af gangen
+
+- en stats grænse af gangen
+
+-hold høg kodekvalitet
+
+-lave metuder til del begegninger
+
+-commit til git
+
+-efter ny test red bar cmmit men ikke push
+
+- push ved græn bar
